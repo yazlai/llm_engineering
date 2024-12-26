@@ -35,3 +35,5 @@ class RandomForestAgent(Agent):
         result = max(0, self.model.predict(vector)[0])
         self.log(f"Random Forest Agent completed - predicting ${result:.2f}")
         return result
+
+        

@@ -9,10 +9,10 @@ import time
 
 feeds = [
     "https://www.dealnews.com/c142/Electronics/?rss=1",
-        "https://www.dealnews.com/c39/Computers/?rss=1",
-        "https://www.dealnews.com/c238/Automotive/?rss=1",
-        "https://www.dealnews.com/f1912/Smart-Home/?rss=1",
-        "https://www.dealnews.com/c196/Home-Garden/?rss=1",
+        # "https://www.dealnews.com/c39/Computers/?rss=1",
+        # "https://www.dealnews.com/c238/Automotive/?rss=1",
+        # "https://www.dealnews.com/f1912/Smart-Home/?rss=1",
+        # "https://www.dealnews.com/c196/Home-Garden/?rss=1",
        ]
 
 def extract(html_snippet: str) -> str:
@@ -80,7 +80,8 @@ class ScrapedDeal:
         feed_iter = tqdm(feeds) if show_progress else feeds
         for feed_url in feed_iter:
             feed = feedparser.parse(feed_url)
-            for entry in feed.entries[:10]:
+             #for entry in feed.entries[:10]:
+            for entry in feed.entries[:5]:
                 deals.append(cls(entry))
                 time.sleep(0.5)
         return deals
